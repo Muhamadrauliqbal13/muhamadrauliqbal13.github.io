@@ -17,6 +17,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/snakeholder.png">
     <title>Rauliqbal</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -38,18 +39,137 @@
     </nav>
     <!-- akhir Navbar -->
     
+    <div class="container mt-5">
+        <h1 class="text-center">Contact</h1>
+    </div>
 
-    <!-- Alerts -->
-    <br>
-    <div class="container">
-        <div class="alert alert-danger" role="alert">
-            <h1>Dalam Perbaikan</h1>
-            sedang melakukan update dan maintenance.
+    <!-- contact -->
+    <div class="container mt-5">
+        <div class="row text-center">
+            <div class="col-sm-4">
+                <div class="contact-box">
+                    <i class="fab fa-whatsapp-square fa-3x"></i>
+                    <h4>WhatsApp</h4>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=6289673102977"> 089673102977</a>
+                </div>
+                <br>
+            </div>
+            <div class="col-sm-4">
+                <div class="contact-box">
+                    <i class="fas fa-envelope-square fa-3x"></i>
+                    <h4>Email</h4>
+                    <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=muhamadrauliqbal.13@gmail.com">muhamadrauliqbal.13@gmail.com</a>
+                </div>
+                <br>
+            </div>
+            <div class="col-sm-4">
+                <div class="contact-box">
+                    <i class="fab fa-instagram-square fa-3x"></i>
+                    <h4>Instagram</h4>
+                    <a target="_blank" href="https://www.instagram.com/raul.iqbl_">ＤｒｅｕＸｘ</a>
+                </div>
+                <br>
+            </div>
         </div>
     </div>
-    
+    <br>
+
+    <!-- contact Form -->
+    <div class="container-contact">  
+        <div class="form">
+            <div class="wrap-contact100">
+                <form class="contact100-form validate-form" id="whatsapp">
+                <h2 class="form">Contact Me</h2>
+                
+                <input class="tujuan" type="hidden" id="noAdmin">
+                <div class="form-group">
+                    <span class="label-input100">Name   :</span>
+                    <br>
+                    <label>
+                    <input class="nama" type="text" placeholder="Masukkan nama Anda">
+                    </label>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="form-group">
+                    <span class="label-input100">No Telp    :</span>
+                    <label>
+                    <input class="nowhatsapp" type="text" placeholder="08xx-xxxx-xxxx">
+                    </label>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="form-group">
+                    <span class="label-input100">Message    :</span>
+                    <label>
+                    <input type="text-area" class="pesan" placeholder="Ketik Pesan"></input>
+                    </label>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                    <div class="contact100-form-bgbtn"></div>
+                    <a class="btn btn-primary contact100-form-btn submit">Kirim</a>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     
     <!-- script -->
+    <script>
+        //no wa 
+        $("#noAdmin").val("085717007832");
+        $('.whatsapp-btn').click(function() {
+        $('#whatsapp').toggleClass('toggle');
+        });
+      // Onclick Whatsapp Sent!
+        $('#whatsapp .submit').click(WhatsApp);
+        $("#whatsapp input, #whatsapp textarea").keypress(function() {
+        if (event.which == 13) WhatsApp();
+        });
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        
+        function WhatsApp() {
+        var ph = '';
+        if ($('#whatsapp .nama').val() == '') { // Cek Nama
+            ph = $('#whatsapp .nama').attr('placeholder');
+            alert('Silahkan tulis ' + ph);
+            $('#whatsapp .nama').focus();
+            return false;
+        } else if ($('#whatsapp .nowhatsapp').val() == '') { // Cek Whatsapp
+            ph = $('#whatsapp .nowhatsapp').attr('placeholder');
+            alert('Silahkan tulis ' + ph);
+            $('#whatsapp .nowhatsapp').focus();
+            return false;
+        } else if ($('#whatsapp .pesan').val() == '') { // cek Pesan
+            ph = $('#whatsapp .pesan').attr('placeholder');
+            alert('Silahkan tulis ' + ph);
+            $('#whatsapp .pesan').focus();
+            return false;
+        } else {
+          // Check Device (Mobile/Desktop)
+            var url_wa = 'https://web.whatsapp.com/send';
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            url_wa = 'whatsapp://send/';
+            }
+          // Get Value
+            var tujuan = $('#whatsapp .tujuan').val(),
+            via_url = location.href,
+            nama = $('#whatsapp .nama').val(),
+            nowhatsapp = $('#whatsapp .nowhatsapp').val(),
+            pesan = $('#whatsapp .pesan').val();
+            $(this).attr('href', url_wa + '?phone=62 ' + tujuan + '&text=Nama: ' + nama + ' %0ANo. Whatsapp: ' + nowhatsapp + '%0AMessage: ' + pesan + ' %0A%0Avia ' + via_url);
+            var w = 960,
+            h = 540,
+            left = Number((screen.width / 2) - (w / 2)),
+            tops = Number((screen.height / 2) - (h / 2)),
+            popupWindow = window.open(this.href, '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=1, copyhistory=no, width=' + w + ', height=' + h + ', top=' + tops + ', left=' + left);
+            popupWindow.focus();
+            return false;
+        }
+        }
+        </script>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

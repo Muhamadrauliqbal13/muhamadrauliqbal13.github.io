@@ -5,6 +5,7 @@
 }
 
 .jumbotron-fluid .display-4 {
+    font-family: 'Poppins', sans-serif;;
     color: black;
     text-align: center;
     font-size: 40px;
@@ -28,11 +29,80 @@
     display: inline-block;
     margin-right: 20px;
 }
+.row{
+    font-family: sans-serif;
+}
 .row .col {
     align-items: center;
     width: 18rem;
 }
 
+.row span {
+    font-weight: 600;
+}
+
+.contact {
+    display: inline-block;
+}
+
+.contact-box a {
+    color: black;
+    font-size: 18px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+.container-contact {
+    background-color: #dcdcdc;
+}
+.form {
+    width: 100%;
+    min-height: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    font-family: sans-serif;
+}
+
+.wrap-contact100 {
+    width: 340px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    overflow: hidden;
+    padding: 42px 55px 45px 55px;
+    box-shadow: 0 0 40px -10px #000;
+    margin: calc(50vh - 220px) auto;
+    padding: 20px 30px;
+    position: relative;
+}
+
+h2{
+    padding-bottom: 10px;
+    width: 180px;
+    color: #78788c;
+    border-bottom: 3px solid;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 125%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: none;
+    outline: none;
+    resize: none;
+    border: 0;
+    transition: all 0.3s;
+    border-bottom: 2px solid #bebed2;
+}
+input:focus {
+    border-bottom: 2px solid #78788c;
+}
+
+.container-contact100-form-btn .btn {
+    float: right;
+}
 
 /* Desktop Ver */
 @media (min-width: 992px) {
