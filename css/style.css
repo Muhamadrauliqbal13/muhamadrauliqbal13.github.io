@@ -116,6 +116,7 @@ input:focus {
 .education .card {
     position: relative;
     margin-right: 20px;
+    margin-left: 20px;
     width: 400px;
     height: 300px;
     overflow: hidden;
@@ -123,7 +124,8 @@ input:focus {
     border-radius: 15px;
     display: flex;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
+    margin-bottom: 30px;  
 }
 .education .card .content {
     position: absolute;
